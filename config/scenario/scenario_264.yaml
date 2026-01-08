@@ -1,0 +1,57 @@
+truck_cfg:
+  v_min: -5.0
+  v_max: 5.0
+  a_min: -2.0
+  a_max: 2.0
+  delta_min: -0.5
+  delta_max: 0.5
+  w_min: -0.3
+  w_max: 0.3
+  L_trc: 4.0
+  L_trl: 8.0
+  L_f_trc: 1.0
+  L_f_trl: 1.0
+  L_r_trc: 2.0
+  L_r_trl: 1.0
+  W_trc: 3.0
+  W_trl: 4.0
+  rho: -1.0
+  phi_min: -1.25
+  phi_max: 1.25
+  tau_v: 0.263
+  tau_delta: 0.1
+planner_cfg:
+  x_min: -50.0
+  x_max: 50.0
+  y_min: -50.0
+  y_max: 50.0
+  phi_min: -1.25
+  phi_max: 1.25
+  v_min: -1.0
+  v_max: 1.0
+  delta_min: -0.45
+  delta_max: 0.45
+  x_res: 1.0
+  y_res: 1.0
+  psi_res: 0.314
+  phi_res: 0.251
+  dir_penalty: 5.0
+  x_tol: 0.1
+  y_tol: 0.1
+  psi_tol: 0.05
+  phi_tol: 0.05
+  ds: 5.0
+  dt: 0.5
+  aexp_dist: 20.0
+  h_boost: 1.0
+init:
+  x: 22.481
+  y: 19.32
+  psi: 2.764
+  phi: 0.0
+goal:
+  x: 3.375
+  y: -23.988
+  psi: 0.735
+  phi: 0.0
+obstacles: []

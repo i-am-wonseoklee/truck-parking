@@ -1,0 +1,70 @@
+ntotal_steps: 5000000
+ncheckpoint_steps: 200000
+artifact_dir: "/home/wonseoklee/Work/Repo/truck-parking/artifacts"
+
+seed: 42
+
+ppo:
+  learning_rate: 3.0e-4
+  n_steps: 512
+  batch_size: 512
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.0
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+
+tfmr:
+  dim_ff: 256
+  dim_mdl: 128
+  num_heads: 4
+  num_layers: 2
+  post_mlp: [128, 128]
+
+policy:
+  pi_layers: [128, 128]
+  vf_layers: [128, 128]
+
+env:
+  dt: 0.1
+  episode_fetcher:
+    dbpath: "/home/wonseoklee/Work/Repo/truck-parking/dataset/dataset.db"
+    nrepeats: 30
+  obs:
+    n_obsts: 5
+    n_refs: 50
+    t_refs: 5.0
+  rew:
+    progress:
+      weight: 0.2
+      sigma_progress: 1.0
+    tracking:
+      weight: 1.0
+      sigma_pos: 0.5
+      sigma_psi: 0.1745
+      sigma_phi: 0.1745
+      lambda_pos: 0.5
+      lambda_psi: 0.7
+      lambda_phi: 0.7
+    smoothness:
+      weight: 0.1
+      sigma_da: 0.5
+    constraints:
+      weight: 0.2
+      sigma_a: 0.5
+      sigma_w: 0.1
+      sigma_phi: 0.1
+      lambda_a: 0.5
+      lambda_w: 0.5
+      lambda_phi: 0.5
+    terminal:
+      pos_tol: 0.2
+      psi_tol: 0.05
+      phi_tol: 0.05
+      v_tol: 0.5
+      timeout: 300.0
+      c_arrival: 30.0
+      c_timeout: 10.0
+      c_collision: 30.0
